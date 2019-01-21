@@ -14,4 +14,4 @@ sudo apt-get install -y libxext6:i386
 sudo apt-get install -y libxrender1:i386
 sudo apt-get install -y libglib2.0-0:i386
 
-$VECTORCAST_DIR/vcastqt &
+#$VECTORCAST_DIR/vcastqt &
