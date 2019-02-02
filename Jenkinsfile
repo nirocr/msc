@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'lgtmgw'
+      label 'BIG_LIN_WKR'
     }
 
   }
