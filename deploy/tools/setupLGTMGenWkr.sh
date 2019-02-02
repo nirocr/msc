@@ -20,17 +20,26 @@ echo "10.1.0.77 ip-10-1-0-77" >> /etc/hosts
 hostname
 cd /tmp
 apt-get -y install openjdk-8-jdk
-/media/lgtmshare/dist/setupDevU18.sh
+apt -y install python python3
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
+add-apt-repository universe
+apt-get update
+apt-get -y install python3-pip python-pip maven ant  gradle nodejs virtualenv make gcc clang tf dotnet-sdk-2.2 
+pip install packaging virtualenv
+pip3 install packaging virtualenv
+apt-get -y install apt-transport-https dirmngr
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list
+apt-get update
+apt-get -y install monodevelop
 mkdir /lgtm-releases
 chmod -R a+rwx /lgtm-releases/
 cd /lgtm-releases
 cp -r /media/lgtmshare/dist/lgtm-1.19.1 .
 cd lgtm-1.19.1/generated/lgtm_general/
 ./install-machine.sh
-cd /tmp
-/media/lgtmshare/dist/setupDevU18.sh
-sudo -u lgtm-worker chmod 0600 /var/lib/lgtm-worker/.ssh/*
-
+lgtm-build-requirements
 cd /tmp
 cp -r /media/lgtmshare/dist/.ssh .
 chown -R lgtm-worker:lgtm-worker .ssh
