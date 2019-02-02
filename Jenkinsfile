@@ -8,6 +8,7 @@ pipeline {
   stages {
     stage('Setup Worker') {
       steps {
+        sh 'ls -al'
         sh 'chmod a+x msc/deploy/tools/setupLGTMGenWkr.sh'
         sh 'sudo msc/deploy/tools/setupLGTMGenWkr.sh'
       }
