@@ -48,9 +48,9 @@ if __name__ == '__main__':
 
     clone_urls = gather_clone_urls(repo)
     for url in clone_urls:
+        lgtm_cmd.append(url)
         print url
-    lgtm_cmd.append(clone_urls)
-    subprocess.run(lgtm_cmd)
+    subprocess.call(lgtm_cmd)
 
 
 
